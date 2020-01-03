@@ -1,4 +1,4 @@
 # oh_my_zsh
 Cheat sheet
 
-Oh My Zsh defaults and plugins, using cheatsheet package
+Defaults, and commands and aliases in plugins; using `cheatsheet` package
