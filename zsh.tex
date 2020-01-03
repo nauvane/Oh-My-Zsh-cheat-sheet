@@ -3,12 +3,7 @@
 \usepackage{xcolor}
 \definecolor{dred}{cmyk}{0,1,1,.3}
 \usepackage{fontspec}
-\setsansfont{Amplitude}[%
-        Path            = ../../Dropbox/source/fonts/ ,
-        Extension       = .otf ,
-        UprightFont     = *-Regular ,
-        Numbers         = Proportional 
-]
+\setsansfont{Droid Sans}
 \setmonofont{Droid Sans Mono}[%
 	Color		= dred ,
 	Scale		= 0.95 
@@ -19,12 +14,14 @@
 \usepackage{titlesec}
 \titleformat{\section}{\ttfamily\Large}{\thesection}{1.77em}{}
 \titlespacing{\section}{0pt}{\baselineskip}{.5\baselineskip}
+\newcommand{\code}{\texttt}
+\newcommand{\codequiv}{\dsm}
 \usepackage{hyperref}
 \hypersetup{%
 pdfpagemode=UseNone,
 pdftitle={Oh My Zsh: cheat sheet},
 pdfauthor={Patrick O'Donovan},
-pdfcreator={Pandoc},
+pdfcreator={LaTeX},
 pdfstartview=FitH,
 pdfdisplaydoctitle=true
 %
@@ -40,178 +37,178 @@ pdfdisplaydoctitle=true
 
 \section{Commands}
 
-\texttt{tab}\\
+\code{tab}\\
 Open the current directory in a new tab
 
-\texttt{tabs}\\
+\code{tabs}\\
 Create a new tab in the current directory
 
-\texttt{take}\\
+\code{take}\\
 Create a new directory and switch to it; will create intermediate directories as required
 
-\texttt{x} or \texttt{extract}\\
+\code{x} or \code{extract}\\
 Extract an archive
 
-\texttt{extract -r}\\
+\code{extract -r}\\
 Extract and remove original archive file
 
-\texttt{ESC ESC}\\
-Puts {\dsm{sudo}} in front of the current command, or the last\\ one if the command line is empty.
+\code{ESC ESC}\\
+Puts {\codequiv{sudo}} in front of the current command, or the last\\ one if the command line is empty.
 
-\texttt{zsh\_stats}\\
+\code{zsh\_stats}\\
 Get list of top twenty commands
 
-\texttt{upgrade\_oh\_my\_zsh}
+\code{upgrade\_oh\_my\_zsh}
 
-\texttt{exec zsh}\\
-Apply changes made to \texttt{.zshrc}
+\code{exec zsh}\\
+Apply changes made to \code{.zshrc}
 
-\texttt{ofd}\\
+\code{ofd}\\
  Open the current directory in a Finder window
 
-\texttt{pfd}\\
+\code{pfd}\\
  Return the path of the frontmost Finder window
 
-\texttt{pfs}\\
+\code{pfs}\\
  Return the current Finder selection
 
-\texttt{cdf }\\
-{\dsm{cd}} to the current Finder directory
+\code{cdf }\\
+{\codequiv{cd}} to the current Finder directory
 
-\texttt{pushdf}\\
-{\dsm{pushd}} to the current Finder directory
+\code{pushdf}\\
+{\codequiv{pushd}} to the current Finder directory
 
-\texttt{man-preview}\\
+\code{man-preview}\\
  Open a specified man page in Preview app
 
-\texttt{showfiles}\\
+\code{showfiles}\\
  Show hidden files
 
-\texttt{hidefiles}\\
+\code{hidefiles}\\
  Hide the hidden files
  
 \columnbreak
 
 \section{Aliases}
 
-\texttt{alias}\\
+\code{alias}\\
 List all aliases
 
-\texttt{alias -L}\\
+\code{alias -L}\\
 Print each alias in the form of calls to alias
 
-\texttt{alias -g}\\
+\code{alias -g}\\
 list or define global aliases
 
-\texttt{\_}\\
-{\dsm{sudo}}
+\code{\_}\\
+{\codequiv{sudo}}
 
-\texttt{brews}\\
-{\dsm{brew list -1}}
+\code{brews}\\
+{\codequiv{brew list -1}}
 
-\texttt{bubc}\\
-{\dsm{brew upgrade \&\& brew cleanup}}
+\code{bubc}\\
+{\codequiv{brew upgrade \&\& brew cleanup}}
 
-\texttt{bubo}\\
-{\dsm{brew update \&\& brew outdated}}
+\code{bubo}\\
+{\codequiv{brew update \&\& brew outdated}}
 
-\texttt{bubu}\\
-{\dsm{bubo \&\& bubc}} 
+\code{bubu}\\
+{\codequiv{bubo \&\& bubc}} 
 
-\texttt{h}\\
-{\dsm{history}}
+\code{h}\\
+{\codequiv{history}}
 
-\texttt{hsi}\\
-{\dsm{hs -i}}
+\code{hsi}\\
+{\codequiv{hs -i}}
 
-\texttt{l}\\
-{\dsm{ls -lah}}
+\code{l}\\
+{\codequiv{ls -lah}}
 
-\texttt{la}\\
-{\dsm{ls -lAh}}
+\code{la}\\
+{\codequiv{ls -lAh}}
 
-\texttt{ll}\\
-{\dsm{ls -lh}}
+\code{ll}\\
+{\codequiv{ls -lh}}
 
-\texttt{ls}\\
-{\dsm{ls -G}}
+\code{ls}\\
+{\codequiv{ls -G}}
 
-\texttt{lsa}\\
-{\dsm{ls -lah}}
+\code{lsa}\\
+{\codequiv{ls -lah}}
 
-\texttt{please}\\
-{\dsm{sudo}}
+\code{please}\\
+{\codequiv{sudo}}
 
-\texttt{po}\\
-{\dsm{popd}}
+\code{po}\\
+{\codequiv{popd}}
 
-\texttt{pu}\\
-{\dsm{pushd}}
+\code{pu}\\
+{\codequiv{pushd}}
 
-\texttt{ql}\\
-{\dsm{qlmanage -p}}
+\code{ql}\\
+{\codequiv{qlmanage -p}}
 
-\texttt{quicklook}\\
-{\dsm{qlmanage -p}}
+\code{quicklook}\\
+{\codequiv{qlmanage -p}}
 
 \section{Directories}
 
-\texttt{wd <warp point>}\\
+\code{wd <warp point>}\\
 Warp directory
 
-\texttt{wd add}\\
+\code{wd add <point>}\\
 Add warp point to current working directory
 
-\texttt{wd ..}\\
+\code{wd ..}\\
 Warp back to the previous directory
 
-\texttt{wd show}\\
+\code{wd show}\\
 List warp points to current directory
 
-\texttt{wd list}\\
+\code{wd list}\\
 List all warp points
 
-\texttt{..}\\
-{\dsm{cd ..}}
+\code{..}\\
+{\codequiv{cd ..}}
 
-\texttt{...}\\
-{\dsm{cd ../..}}
+\code{...}\\
+{\codequiv{cd ../..}}
 
-\texttt{....}\\
-{\dsm{cd ../../..}}
+\code{....}\\
+{\codequiv{cd ../../..}}
 
-\texttt{.....}\\
-{\dsm{cd ../../../..}}
+\code{.....}\\
+{\codequiv{cd ../../../..}}
 
-\texttt{/}\\
-{\dsm{cd}} /
+\code{/}\\
+{\codequiv{cd}} /
 
-\texttt{\textasciitilde}\\
-{\dsm{cd}} \textasciitilde
+\code{\textasciitilde}\\
+{\codequiv{cd}} \textasciitilde
 
-\texttt{md}\\
-{\dsm{mkdir -p}}
+\code{md}\\
+{\codequiv{mkdir -p}}
 
-\texttt{rd}\\
-{\dsm{rmdir}}
+\code{rd}\\
+{\codequiv{rmdir}}
 
-\texttt{d}\\
-{\dsm{dirs -v}} (lists last used directories)
+\code{d}\\
+{\codequiv{dirs -v}} (lists last used directories)
 
-\texttt{lwd}\\
+\code{lwd}\\
 Jump to last working directory (automatically called for new shells)
 
 \section{Searches}
 
-\texttt{sp}\\
+\code{sp}\\
 Startpage
 
-\texttt{ddg}\\
+\code{ddg}\\
 Duckduckgo
 
-\texttt{ecosia}
+\code{ecosia}
 
-\texttt{github}
+\code{github}
 
 Via Duckduckgo
 
@@ -239,7 +236,7 @@ last-working-dir
 
 osx
 
-per-directory-history {\dsm{(}}ctrl-g{\dsm{)}}
+per-directory-history {\codequiv{(}}ctrl-g{\codequiv{)}}
 
 shrink-path
 
