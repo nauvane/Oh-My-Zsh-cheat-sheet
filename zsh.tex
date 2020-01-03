@@ -1,39 +1,13 @@
 \PassOptionsToPackage{cmyk}{xcolor}
 \documentclass[a4paper,landscape,columns=3]{cheatsheet}
-%\usepackage[margin=3cm]{geometry}
-%\usepackage[french,english]{babel}
-%\usepackage{enumerate}
-%\usepackage{palatino}
 \usepackage{xcolor}
-\definecolor{dark-gray}{gray}{0.3}
-\definecolor{black-gray}{gray}{0.2}
-\definecolor{violette}{RGB/cmyk}{38,23,77/.5,.7,0,.7}
-\definecolor{dred}{RGB/cmyk}{230,0,0/0,1,1,.1}
+\definecolor{dred}{cmyk}{0,1,1,.3}
 \usepackage{fontspec}
-\setmainfont{Chaparral Pro}[
-        Path            = ../../source/fonts/ ,
+\setsansfont{Amplitude}[%
+        Path            = ../../Dropbox/source/fonts/ ,
         Extension       = .otf ,
         UprightFont     = *-Regular ,
-        BoldFont        = *-Bold ,
-        ItalicFont      = *-Italic ,
-        BoldItalicFont  = *-BoldIt ,
-        % Light           = *-Light ,
-        % LightItalic     = *-LightItalic ,
-        Ligatures       = Common ,
-        Numbers         = OldStyle ,
-        Numbers         = Proportional
-]
-\setsansfont{Amplitude}[
-        Path            = ../../source/fonts/ ,
-        Extension       = .otf ,
-        UprightFont     = *-Regular ,
-        BoldFont        = *-Bold ,
-%        BoldItalicFont  = *-BoldIt ,
-        % Light           = *-Light ,
-        % LightItalic     = *-LightItalic ,
-%        Ligatures       = Common ,
-%        Numbers         = OldStyle ,
-        Numbers         = Proportional
+        Numbers         = Proportional 
 ]
 \setmonofont{Droid Sans Mono}[%
 	Color		= dred ,
@@ -42,32 +16,9 @@
 \newfontfamily{\dsm}{Droid Sans Mono}[%
 	Scale		= 0.95
 ]
-\newfontfamily{\chpl}{Chaparral Pro}[
-        Path            = ../../source/fonts/ ,
-        Extension       = .otf ,
-        UprightFont     = *-Bold ,
-%        ItalicFont      = *-LightIt ,
-%	Bold	Font		= *-Bold ,
-        Ligatures       = Common ,
-        Numbers         = OldStyle ,
-        Numbers         = Monospaced  ,
-        Color		= dred 
-]
-%\usepackage[bf,compact]{titlesec}
-\usepackage[rm]{titlesec}
+\usepackage{titlesec}
 \titleformat{\section}{\ttfamily\Large}{\thesection}{1.77em}{}
-%\titleformat{\section}{\bfseries\color{dred}}{\thesection}{1.77em}{}
-%\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
-%\titlespacing{\section}{0pt}{\baselineskip}{.5\baselineskip}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\footrulewidth}{0pt}
-\renewcommand{\headrulewidth}{0pt}
-\fancyfoot[R]{\chpl{\textcolor{dred}{\thepage}}}
-\usepackage{enumitem}
-\usepackage{kvsetkeys}
-\usepackage{keyval}
+\titlespacing{\section}{0pt}{\baselineskip}{.5\baselineskip}
 \usepackage{hyperref}
 \hypersetup{%
 pdfpagemode=UseNone,
@@ -75,14 +26,15 @@ pdftitle={Oh My Zsh: cheat sheet},
 pdfauthor={Patrick O'Donovan},
 pdfcreator={Pandoc},
 pdfstartview=FitH,
-pdfdisplaydoctitle=true,
-colorlinks=true,
-urlcolor={violette}%
+pdfdisplaydoctitle=true
+%
 }
-\begin{document}
+
+\begin{document}
 
 \sffamily
-\section{Oh My Zsh}
+
+\section{Oh My Zsh}
 
 \bigskip
 
@@ -90,7 +42,8 @@ urlcolor={violette}%
 
 \texttt{tab}\\
 Open the current directory in a new tab
-\texttt{tabs}\\
+
+\texttt{tabs}\\
 Create a new tab in the current directory
 
 \texttt{take}\\
@@ -103,7 +56,7 @@ Extract an archive
 Extract and remove original archive file
 
 \texttt{ESC ESC}\\
-Puts {\dsm{sudo}} in front of the current command, or the last one if the command line is empty.
+Puts {\dsm{sudo}} in front of the current command, or the last\\ one if the command line is empty.
 
 \texttt{zsh\_stats}\\
 Get list of top twenty commands
@@ -200,12 +153,13 @@ list or define global aliases
 
 \texttt{quicklook}\\
 {\dsm{qlmanage -p}}
-\section{Directories}
 
-\texttt{wd}\\
+\section{Directories}
+
+\texttt{wd <warp point>}\\
 Warp directory
 
-\texttt{wd add test}\\
+\texttt{wd add}\\
 Add warp point to current working directory
 
 \texttt{wd ..}\\
@@ -233,16 +187,16 @@ List all warp points
 {\dsm{cd}} /
 
 \texttt{\textasciitilde}\\
-{\dsm{cd} \textasciitilde
+{\dsm{cd}} \textasciitilde
 
 \texttt{md}\\
-{{\dsm{mkdir -p}}
+{\dsm{mkdir -p}}
 
 \texttt{rd}\\
-{{\dsm{rmdir}}
+{\dsm{rmdir}}
 
 \texttt{d}\\
-{\dsm{dirs -v}} \sffamily (lists last used directories)
+{\dsm{dirs -v}} (lists last used directories)
 
 \texttt{lwd}\\
 Jump to last working directory (automatically called for new shells)
@@ -269,11 +223,7 @@ wiki \qquad youtube
 
 \columnbreak
 
-\sffamily
-
 \section{Plugins}
-
-\ttfamily
 
 copyfile
 
@@ -289,7 +239,7 @@ last-working-dir
 
 osx
 
-per-directory-history {\dsm{(ctrl-g)}}
+per-directory-history {\dsm{(}}ctrl-g{\dsm{)}}
 
 shrink-path
 
@@ -297,6 +247,6 @@ sudo
 
 wd
 
-web-search
+web-search 
 
 \end{document}
