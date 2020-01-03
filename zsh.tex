@@ -1,0 +1,302 @@
+\PassOptionsToPackage{cmyk}{xcolor}
+\documentclass[a4paper,landscape,columns=3]{cheatsheet}
+%\usepackage[margin=3cm]{geometry}
+%\usepackage[french,english]{babel}
+%\usepackage{enumerate}
+%\usepackage{palatino}
+\usepackage{xcolor}
+\definecolor{dark-gray}{gray}{0.3}
+\definecolor{black-gray}{gray}{0.2}
+\definecolor{violette}{RGB/cmyk}{38,23,77/.5,.7,0,.7}
+\definecolor{dred}{RGB/cmyk}{230,0,0/0,1,1,.1}
+\usepackage{fontspec}
+\setmainfont{Chaparral Pro}[
+        Path            = ../../source/fonts/ ,
+        Extension       = .otf ,
+        UprightFont     = *-Regular ,
+        BoldFont        = *-Bold ,
+        ItalicFont      = *-Italic ,
+        BoldItalicFont  = *-BoldIt ,
+        % Light           = *-Light ,
+        % LightItalic     = *-LightItalic ,
+        Ligatures       = Common ,
+        Numbers         = OldStyle ,
+        Numbers         = Proportional
+]
+\setsansfont{Amplitude}[
+        Path            = ../../source/fonts/ ,
+        Extension       = .otf ,
+        UprightFont     = *-Regular ,
+        BoldFont        = *-Bold ,
+%        BoldItalicFont  = *-BoldIt ,
+        % Light           = *-Light ,
+        % LightItalic     = *-LightItalic ,
+%        Ligatures       = Common ,
+%        Numbers         = OldStyle ,
+        Numbers         = Proportional
+]
+\setmonofont{Droid Sans Mono}[%
+	Color		= dred ,
+	Scale		= 0.95 
+]
+\newfontfamily{\dsm}{Droid Sans Mono}[%
+	Scale		= 0.95
+]
+\newfontfamily{\chpl}{Chaparral Pro}[
+        Path            = ../../source/fonts/ ,
+        Extension       = .otf ,
+        UprightFont     = *-Bold ,
+%        ItalicFont      = *-LightIt ,
+%	Bold	Font		= *-Bold ,
+        Ligatures       = Common ,
+        Numbers         = OldStyle ,
+        Numbers         = Monospaced  ,
+        Color		= dred 
+]
+%\usepackage[bf,compact]{titlesec}
+\usepackage[rm]{titlesec}
+\titleformat{\section}{\ttfamily\Large}{\thesection}{1.77em}{}
+%\titleformat{\section}{\bfseries\color{dred}}{\thesection}{1.77em}{}
+%\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
+%\titlespacing{\section}{0pt}{\baselineskip}{.5\baselineskip}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[R]{\chpl{\textcolor{dred}{\thepage}}}
+\usepackage{enumitem}
+\usepackage{kvsetkeys}
+\usepackage{keyval}
+\usepackage{hyperref}
+\hypersetup{%
+pdfpagemode=UseNone,
+pdftitle={Oh My Zsh: cheat sheet},
+pdfauthor={Patrick O'Donovan},
+pdfcreator={Pandoc},
+pdfstartview=FitH,
+pdfdisplaydoctitle=true,
+colorlinks=true,
+urlcolor={violette}%
+}
+\begin{document}
+
+\sffamily
+\section{Oh My Zsh}
+
+\bigskip
+
+\section{Commands}
+
+\texttt{tab}\\
+Open the current directory in a new tab
+\texttt{tabs}\\
+Create a new tab in the current directory
+
+\texttt{take}\\
+Create a new directory and switch to it; will create intermediate directories as required
+
+\texttt{x} or \texttt{extract}\\
+Extract an archive
+
+\texttt{extract -r}\\
+Extract and remove original archive file
+
+\texttt{ESC ESC}\\
+Puts {\dsm{sudo}} in front of the current command, or the last one if the command line is empty.
+
+\texttt{zsh\_stats}\\
+Get list of top twenty commands
+
+\texttt{upgrade\_oh\_my\_zsh}
+
+\texttt{exec zsh}\\
+Apply changes made to \texttt{.zshrc}
+
+\texttt{ofd}\\
+ Open the current directory in a Finder window
+
+\texttt{pfd}\\
+ Return the path of the frontmost Finder window
+
+\texttt{pfs}\\
+ Return the current Finder selection
+
+\texttt{cdf }\\
+{\dsm{cd}} to the current Finder directory
+
+\texttt{pushdf}\\
+{\dsm{pushd}} to the current Finder directory
+
+\texttt{man-preview}\\
+ Open a specified man page in Preview app
+
+\texttt{showfiles}\\
+ Show hidden files
+
+\texttt{hidefiles}\\
+ Hide the hidden files
+ 
+\columnbreak
+
+\section{Aliases}
+
+\texttt{alias}\\
+List all aliases
+
+\texttt{alias -L}\\
+Print each alias in the form of calls to alias
+
+\texttt{alias -g}\\
+list or define global aliases
+
+\texttt{\_}\\
+{\dsm{sudo}}
+
+\texttt{brews}\\
+{\dsm{brew list -1}}
+
+\texttt{bubc}\\
+{\dsm{brew upgrade \&\& brew cleanup}}
+
+\texttt{bubo}\\
+{\dsm{brew update \&\& brew outdated}}
+
+\texttt{bubu}\\
+{\dsm{bubo \&\& bubc}} 
+
+\texttt{h}\\
+{\dsm{history}}
+
+\texttt{hsi}\\
+{\dsm{hs -i}}
+
+\texttt{l}\\
+{\dsm{ls -lah}}
+
+\texttt{la}\\
+{\dsm{ls -lAh}}
+
+\texttt{ll}\\
+{\dsm{ls -lh}}
+
+\texttt{ls}\\
+{\dsm{ls -G}}
+
+\texttt{lsa}\\
+{\dsm{ls -lah}}
+
+\texttt{please}\\
+{\dsm{sudo}}
+
+\texttt{po}\\
+{\dsm{popd}}
+
+\texttt{pu}\\
+{\dsm{pushd}}
+
+\texttt{ql}\\
+{\dsm{qlmanage -p}}
+
+\texttt{quicklook}\\
+{\dsm{qlmanage -p}}
+\section{Directories}
+
+\texttt{wd}\\
+Warp directory
+
+\texttt{wd add test}\\
+Add warp point to current working directory
+
+\texttt{wd ..}\\
+Warp back to the previous directory
+
+\texttt{wd show}\\
+List warp points to current directory
+
+\texttt{wd list}\\
+List all warp points
+
+\texttt{..}\\
+{\dsm{cd ..}}
+
+\texttt{...}\\
+{\dsm{cd ../..}}
+
+\texttt{....}\\
+{\dsm{cd ../../..}}
+
+\texttt{.....}\\
+{\dsm{cd ../../../..}}
+
+\texttt{/}\\
+{\dsm{cd}} /
+
+\texttt{\textasciitilde}\\
+{\dsm{cd} \textasciitilde
+
+\texttt{md}\\
+{{\dsm{mkdir -p}}
+
+\texttt{rd}\\
+{{\dsm{rmdir}}
+
+\texttt{d}\\
+{\dsm{dirs -v}} \sffamily (lists last used directories)
+
+\texttt{lwd}\\
+Jump to last working directory (automatically called for new shells)
+
+\section{Searches}
+
+\texttt{sp}\\
+Startpage
+
+\texttt{ddg}\\
+Duckduckgo
+
+\texttt{ecosia}
+
+\texttt{github}
+
+Via Duckduckgo
+
+\ttfamily
+
+image \qquad map \qquad news
+
+wiki \qquad youtube
+
+\columnbreak
+
+\sffamily
+
+\section{Plugins}
+
+\ttfamily
+
+copyfile
+
+dirhistory 
+
+extract
+
+forklift
+
+history
+
+last-working-dir
+
+osx
+
+per-directory-history {\dsm{(ctrl-g)}}
+
+shrink-path
+
+sudo
+
+wd
+
+web-search
+
+\end{document}
